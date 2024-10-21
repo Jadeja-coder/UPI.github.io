@@ -4,6 +4,19 @@ import random  # type: ignore
 import string # type: ignore
 import sys
 import os
+import streamlit as st
+import requests
+
+st.title("Flask and Streamlit Integration")
+
+if st.button("Get Data from Flask"):
+    response = requests.get("http://127.0.0.1:5000/api/data")
+    if response.status_code == 200:
+        data = response.json()
+        st.success(data["message"])
+    else:
+        st.error("Failed to retrieve data from Flask")
+
 
 # Path to your project
 path = 'C:\Users\mahir\UPI.py'
