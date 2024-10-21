@@ -2,6 +2,16 @@ from flask import Flask, request, jsonify
 import sqlite3
 import random  # type: ignore
 import string # type: ignore
+import sys
+import os
+
+# Path to your project
+path = 'C:\Users\mahir\UPI.py'
+if path not in sys.path:
+    sys.path.append(path)
+
+from app import app as application  # Import your Flask app
+
 
 app = Flask(__name__)
 
